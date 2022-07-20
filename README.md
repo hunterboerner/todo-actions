@@ -66,26 +66,27 @@ You can get a free instance on [MongoDB Atlas](https://www.mongodb.com/cloud/atl
 
 3. This will bring you to the GitHub workflow editor. Copy the below code into the editor:
 
-   ```yml
-   name: Create issues from todos
+```yml
+name: Create issues from todos
 
-   on:
-     push:
-       branches:
-        - master
+on:
+  push:
+    branches:
+    - master
 
-   jobs:
-     todos:
-       runs-on: ubuntu-latest
+jobs:
+  todos:
+    runs-on: ubuntu-latest
 
-         steps:
-           - uses: actions/checkout@v1
-           - name: todo-actions
-             uses: dtinth/todo-actions@master
-             env:
-               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-               TODO_ACTIONS_MONGO_URL: ${{ secrets.TODO_ACTIONS_MONGO_URL }}
-   ```
+    steps:
+      - uses: actions/checkout@v1
+      - name: todo-actions
+        uses: hunterboerner/todo-actions@master
+        env:
+          TODO_ACTIONS_MONGO_URL: ${{ secrets.TODO_ACTIONS_MONGO_URL }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+```
 
    _Recommended: Rename `main.yml` to something else, such as `todos.yml`_
 
