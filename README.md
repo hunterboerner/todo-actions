@@ -160,4 +160,4 @@ Therefore, inside the code base, instead of “issues,” `todo-actions` calls t
    // TODO [#1]: implement this thing
    ```
 
-6. The change is committed and pushed to the repository. If the push is successful, then it is done. Otherwise, someone else has made another commit to the repository, the action on that commit will take care of committing.
+6. The change is committed to the repository.
